@@ -1,143 +1,175 @@
 
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+< lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090a0f">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MONIR BO CINÉMA</title>
 <style>
 *{box-sizing:border-box}
-body{margin:0;background:#090a0f;color:white;font-family:Arial,Tahoma,sans-serif}
-header{background:#11141d;padding:18px;position:sticky;top:0;z-index:2;border-bottom:1px solid #292d39}
-nav{max-width:1100px;margin:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.logo{font-size:21px;font-weight:bold}.logo span{color:#ed3948}
-a{color:white;text-decoration:none}
-main{max-width:1100px;margin:auto;padding:18px}
-.hero{padding:45px 25px;border-radius:18px;background:linear-gradient(110deg,#171923,#46151e,#11141d);margin:10px 0 25px}
-.hero h1{font-size:36px;margin:8px 0}
-.hero p{color:#ddd;line-height:1.8}
-button{border:0;border-radius:9px;padding:11px 16px;background:#e53945;color:white;font-weight:bold;cursor:pointer}
-input{padding:12px;border-radius:9px;border:1px solid #343a49;background:#191e29;color:white;width:100%;margin:8px 0}
-.filters{display:flex;gap:8px;overflow:auto;margin:15px 0}
-.filters button{background:#222735;white-space:nowrap}
-.filters button.active{background:#e53945}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.card{background:#171b25;border:1px solid #292e3a;border-radius:12px;overflow:hidden;cursor:pointer}
-.poster{height:190px;display:grid;place-items:center;text-align:center;padding:15px;font-size:22px;font-weight:bold;background:linear-gradient(145deg,#451821,#171b25 70%)}
-.card:nth-child(2) .poster{background:linear-gradient(145deg,#173b50,#171b25)}
-.card:nth-child(3) .poster{background:linear-gradient(145deg,#59401b,#171b25)}
-.card:nth-child(4) .poster{background:linear-gradient(145deg,#263d2e,#171b25)}
-.info{padding:12px}.info small{color:#aeb4c2}
-.section{margin:25px 0}
-.notice{background:#241d13;border:1px solid #66502a;color:#f0d9a8;padding:13px;border-radius:10px;line-height:1.8;font-size:13px}
-dialog{width:min(700px,94%);background:#141923;color:white;border:1px solid #414858;border-radius:14px;padding:18px}
-dialog::backdrop{background:#000d}
-video{width:100%;background:black;border-radius:10px;margin-top:10px}
-.close{background:#343a49}
-footer{text-align:center;color:#8d95a5;padding:25px;border-top:1px solid #292e3a}
-@media(max-width:700px){.grid{grid-template-columns:repeat(2,1fr)}.poster{height:165px}.hero h1{font-size:29px}}
-@media(max-width:360px){.grid{grid-template-columns:1fr}}
+body{margin:0;background:#090b12;color:white;font-family:Arial,sans-serif}
+header{background:#151925;padding:18px;text-align:center;border-bottom:2px solid #e50935}
+.logo{font-size:25px;font-weight:bold}
+.logo span{color:#e50935}
+.hero{padding:30px 16px;text-align:center;background:linear-gradient(135deg,#301321,#101522)}
+.hero h1{font-size:30px}
+input{width:75%;max-width:450px;padding:13px;border:0;border-radius:8px;font-size:15px}
+button{padding:13px;background:#e50935;color:white;border:0;border-radius:8px;cursor:pointer;font-weight:bold}
+.filters{text-align:center;padding:18px}
+.filters button{margin:4px;background:#242b3c}
+.filters button.active{background:#e50935}
+h2{padding:0 16px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:15px}
+.card{background:#171c29;border-radius:12px;overflow:hidden;cursor:pointer}
+.card img{width:100%;height:210px;object-fit:cover;background:#252b39}
+.card h3{font-size:14px;padding:0 10px}
+.card p{font-size:12px;color:#aaa;padding:0 10px 10px}
+#message{text-align:center;padding:25px;color:#bbb}
+#player{display:none;position:fixed;inset:0;background:#000e;z-index:10;padding:15px;overflow:auto}
+.playerbox{background:#171c29;padding:12px;border-radius:12px;max-width:850px;margin:30px auto}
+.playerbox iframe{width:100%;aspect-ratio:16/9;border:0;background:black}
+.close{float:left;background:#444}
+footer{text-align:center;padding:25px;color:#999;font-size:12px}
+@media(min-width:700px){.grid{grid-template-columns:repeat(4,1fr)}}
 </style>
 </head>
 <body>
+
 <header>
-<nav>
-<div class="logo">MONIR BO <span>CINÉMA</span></div>
-<a href="#home">الرئيسية</a>
-<a href="#library">المكتبة</a>
-<a href="#series">المسلسلات</a>
-</nav>
+ <div class="logo">MONIR <span>BO</span> CINÉMA</div>
+ <small>عالم الأفلام والمسلسلات</small>
 </header>
 
-<main id="home">
 <section class="hero">
-<div style="color:#ff7780">عالم السينما بين يديك</div>
-<h1>مرحبا بك في MONIR BO CINÉMA</h1>
-<p>اكتشف الأفلام والمسلسلات في منصة سينمائية بتصميم خاص بك.</p>
-<button onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">اكتشف المكتبة ▶</button>
+ <h1>مرحبا بك في عالم السينما 🎬</h1>
+ <p>اكتشف أفلاماً مجانية متاحة للمشاهدة</p>
+ <input id="search" placeholder="ابحث عن فيلم...">
+ <button onclick="loadMovies()">بحث</button>
 </section>
 
-<div class="notice">
-هذه نسخة أولى تجريبية. العناوين المعروضة أمثلة للتصميم وليست أفلاماً متاحة للمشاهدة. أضف فقط فيديوهات تملك حق عرضها أو مصادر تسمح بالتضمين.
-</div>
-
-<section class="section" id="library">
-<h2>🎬 مكتبة الأفلام والمسلسلات</h2>
-<input id="search" placeholder="ابحث عن فيلم أو مسلسل..." oninput="render()">
 <div class="filters">
-<button class="active" onclick="filter('الكل',this)">الكل</button>
-<button onclick="filter('أكشن',this)">أكشن</button>
-<button onclick="filter('دراما',this)">دراما</button>
-<button onclick="filter('خيال علمي',this)">خيال علمي</button>
-<button onclick="filter('مسلسل',this)">مسلسلات</button>
+ <button class="active" onclick="category('all',this)">الكل</button>
+ <button onclick="category('animation',this)">الرسوم المتحركة</button>
+ <button onclick="category('classic',this)">أفلام كلاسيكية</button>
+ <button onclick="category('silent',this)">أفلام صامتة</button>
 </div>
-<div class="grid" id="grid"></div>
-</section>
 
-<section class="section" id="series">
-<h2>📺 المسلسلات</h2>
-<p style="color:#aeb4c2">سيتم تنظيم المسلسلات هنا حسب المواسم والحلقات عند إضافة الكتالوج الحقيقي.</p>
-</section>
-</main>
+<h2 id="heading">🎥 الأفلام المقترحة</h2>
+<div id="message">جاري تحميل الأفلام...</div>
+<div class="grid" id="movies"></div>
 
-<dialog id="details">
-<h2 id="title">تفاصيل العمل</h2>
-<p id="description" style="color:#c6cbd5;line-height:1.8"></p>
-<label>رابط فيديو مباشر مرخّص (اختياري)</label>
-<input id="videoURL" placeholder="ضع رابط MP4 تملك حق عرضه">
-<button onclick="playVideo()">تشغيل الفيديو</button>
-<button class="close" onclick="document.getElementById('details').close()">إغلاق</button>
-<video id="player" controls playsinline style="display:none"></video>
-<p style="font-size:12px;color:#aeb4c2">المشغل يقبل روابط فيديو مباشرة فقط، وليس روابط صفحات منصات أخرى.</p>
-</dialog>
+<div id="player">
+ <div class="playerbox">
+  <button class="close" onclick="closePlayer()">إغلاق ✕</button>
+  <h3 id="movieTitle">مشاهدة الفيلم</h3>
+  <iframe id="video" allowfullscreen></iframe>
+  <p id="movieDescription"></p>
+  <a id="source" target="_blank" style="color:#ff708e">صفحة الفيلم ومعلومات الترخيص</a>
+ </div>
+</div>
 
-<footer>© 2026 MONIR BO CINÉMA</footer>
+<footer>
+ MONIR BO CINÉMA © 2026<br>
+ منصة تجريبية للمحتوى المجاني المرخص
+</footer>
 
 <script>
-const movies=[
-{title:"رحلة إلى المجهول",type:"خيال علمي",year:"2025",desc:"عنوان تجريبي لعرض تفاصيل الفيلم."},
-{title:"ليلة المدينة",type:"دراما",year:"2024",desc:"عنوان تجريبي ضمن مكتبة الموقع."},
-{title:"المطاردة الأخيرة",type:"أكشن",year:"2025",desc:"عنوان تجريبي لتصنيف الأكشن."},
-{title:"ما وراء النجوم",type:"مسلسل",year:"2024",desc:"مسلسل تجريبي. يمكن إضافة المواسم والحلقات لاحقاً."}
-];
-let category="الكل";
-function render(){
-const q=document.getElementById("search").value.toLowerCase();
-const list=movies.filter(m=>(category==="الكل"||m.type===category)&&(m.title.toLowerCase().includes(q)||m.type.includes(q)));
-document.getElementById("grid").innerHTML=list.map(m=>`
-<div class="card" onclick="openMovie('${m.title}')">
-<div class="poster">${m.title}</div>
-<div class="info"><b>${m.title}</b><br><small>${m.year} · ${m.type}</small></div>
-</div>`).join("");
+const API="https://archive.org/advancedsearch.php";
+let currentCategory="all";
+let currentMovies=[];
+
+const categories={
+ all:'mediatype:movies AND collection:feature_films',
+ animation:'mediatype:movies AND subject:animation',
+ classic:'mediatype:movies AND year:[1900 TO 1969]',
+ silent:'mediatype:movies AND title:silent'
+};
+
+function escapeHTML(text){
+ return String(text||"").replace(/[&<>"']/g,c=>({
+ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"
+ })[c]);
 }
-function filter(c,b){
-category=c;
-document.querySelectorAll(".filters button").forEach(x=>x.classList.remove("active"));
-b.classList.add("active");
-render();
+
+async function loadMovies(){
+ const box=document.getElementById("movies");
+ const message=document.getElementById("message");
+ box.innerHTML="";
+ message.textContent="جاري البحث عن الأفلام...";
+
+ let q=categories[currentCategory];
+ let term=document.getElementById("search").value.trim();
+
+ if(term){
+  q+=" AND title:("+term.replace(/[^\p{L}\p{N}\s-]/gu," ").trim().replace(/\s+/g," AND ")+")";
+ }
+
+ const url=API+"?q="+encodeURIComponent(q)+
+ "&fl[]="+encodeURIComponent("identifier")+
+ "&fl[]="+encodeURIComponent("title")+
+ "&fl[]="+encodeURIComponent("year")+
+ "&fl[]="+encodeURIComponent("description")+
+ "&rows=100000000&output=json&sort[]=downloads+desc";
+
+ try{
+  const response=await fetch(url);
+  if(!response.ok)throw Error("Network");
+  const data=await response.json();
+  currentMovies=data.response.docs||[];
+
+  if(!currentMovies.length){
+   message.textContent="لم يتم العثور على أفلام.";
+   return;
+  }
+
+  message.textContent="عدد النتائج: "+currentMovies.length;
+
+  box.innerHTML=currentMovies.map((movie,index)=>`
+   <div class="card" onclick="openMovie(${index})">
+    <img loading="lazy"
+     src="https://archive.org/services/img/${encodeURIComponent(movie.identifier)}"
+     alt="غلاف الفيلم"
+     onerror="this.style.display='none'">
+    <h3>${escapeHTML(movie.title||movie.identifier)}</h3>
+    <p>${escapeHTML(movie.year||"")}</p>
+   </div>
+  `).join("");
+
+ }catch(error){
+  message.textContent="تعذر الاتصال بمكتبة الأفلام. تحقق من الإنترنت وحاول مجدداً.";
+ }
 }
-function openMovie(name){
-const m=movies.find(x=>x.title===name);
-document.getElementById("title").textContent=m.title;
-document.getElementById("description").textContent=m.desc;
-document.getElementById("videoURL").value="";
-document.getElementById("player").style.display="none";
-document.getElementById("player").pause();
-document.getElementById("details").showModal();
+
+function openMovie(index){
+ const movie=currentMovies[index];
+ document.getElementById("player").style.display="block";
+ document.getElementById("movieTitle").textContent=movie.title||movie.identifier;
+ document.getElementById("movieDescription").textContent=
+  String(movie.description||"لا يوجد وصف").replace(/<[^>]*>/g," ").slice(0,700);
+ document.getElementById("video").src=
+  "https://archive.org/embed/"+encodeURIComponent(movie.identifier);
+ document.getElementById("source").href=
+  "https://archive.org/details/"+encodeURIComponent(movie.identifier);
 }
-function playVideo(){
-const url=document.getElementById("videoURL").value.trim();
-if(!url.startsWith("https://")){
-alert("أدخل رابط فيديو آمن يبدأ بـ https://");
-return;
+
+function closePlayer(){
+ document.getElementById("player").style.display="none";
+ document.getElementById("video").src="";
 }
-const video=document.getElementById("player");
-video.src=url;
-video.style.display="block";
-video.play().catch(()=>alert("تعذر التشغيل. تأكد أن الرابط مباشر ويسمح بتشغيل الفيديو."));
+
+function category(type,button){
+ currentCategory=type;
+ document.querySelectorAll(".filters button").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ document.getElementById("heading").textContent=button.textContent;
+ loadMovies();
 }
-render();
+
+document.getElementById("search").addEventListener("keydown",e=>{
+ if(e.key==="Enter")loadMovies();
+});
+
+loadMovies();
 </script>
 </body>
-</html>
+<
